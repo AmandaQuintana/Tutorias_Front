@@ -18,8 +18,9 @@ use App\Http\Controllers\TutoriasController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/tutorias', [TutoriasController::class, 'index'])->name('tutorias.index');
+Route::get('/tutoria', [TutoriasController::class, 'create'])->middleware('auth');
+Route::post('/tutoria', [TutoriasController::class, 'store'])->name('tutoria.store');
 
-Route::get('/tutorias', [TutoriasController::class, 'index']);
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
