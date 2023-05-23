@@ -22,5 +22,9 @@ Route::get('/tutorias', [TutoriasController::class, 'index'])->name('tutorias.in
 Route::get('/tutoria', [TutoriasController::class, 'create'])->middleware('auth');
 Route::post('/tutoria', [TutoriasController::class, 'store'])->name('tutoria.store');
 
+Route::get('/404', function () {
+    return view('404');
+})->name('404');
+
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
