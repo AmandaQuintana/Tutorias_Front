@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsignaturasController;
 use App\Http\Controllers\EstudiantesController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/estudiantes', [EstudiantesController::class, 'index'])->name('estudiantes.index'); //LIST
     Route::get('/estudiante/{id}', [EstudiantesController::class, 'show'])->name('estudiantes.show'); //SHOW
+
+    Route::get('/asignaturas', [AsignaturasController::class, 'index'])->name('asignaturas.index'); //LIST
+    Route::get('/asignatura/{id}', [AsignaturasController::class, 'show'])->name('asignaturas.show'); //SHOW
 });
 
 

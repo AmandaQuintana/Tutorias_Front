@@ -82,6 +82,9 @@
                     <ul class="navbar-nav me-auto">
                         <a class="nav-link" href="{{ route('estudiantes.index') }}">{{ __('Students') }}</a>
                     </ul>
+                    <ul class="navbar-nav me-auto">
+                        <a class="nav-link" href="{{ route('asignaturas.index') }}">{{ __('Subjects') }}</a>
+                    </ul>
                     @endauth
 
                     <!-- Right Side Of Navbar -->
