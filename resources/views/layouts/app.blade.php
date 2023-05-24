@@ -75,11 +75,12 @@
                     @auth
                     <ul class="navbar-nav me-auto">
                         <a class="nav-link" href="{{ route('tutorias.index') }}">{{ __('Tutorships') }}</a>
-
                     </ul>
                     <ul class="navbar-nav me-auto">
                         <a class="nav-link" href="{{ route('tutores.index') }}">{{ __('Teachers') }}</a>
-
+                    </ul>
+                    <ul class="navbar-nav me-auto">
+                        <a class="nav-link" href="{{ route('estudiantes.index') }}">{{ __('Students') }}</a>
                     </ul>
                     @endauth
 

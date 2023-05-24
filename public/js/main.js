@@ -28,7 +28,7 @@
     // Footer Fixed
     $(document).ready(function () {
         var currentPath = window.location.pathname;
-        var allowedViews = ['/tutorias', '/tutor', '/tutores', '/tutor/1'];
+        var allowedViews = ['/tutorias', '/tutor', '/tutores', '/estudiantes'];
 
         if (allowedViews.includes(currentPath)) {
             $('#footer').addClass('footer-fixed');
