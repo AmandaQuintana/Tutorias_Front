@@ -15,50 +15,51 @@ Tutoria
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h6 class="section-title bg-white text-center text-primary px-3">Form View</h6>
+            <h6 class="section-title bg-white text-center text-primary px-3">Detail View</h6>
             <h1 class="mb-5">Tutorship</h1>
         </div>
 
         <div class="col-lg-12 col-md-12 wow fadeInUp" data-wow-delay="0.5s">
-            <form action="{{ route('tutorias.update', $tutoria['id_tutoria']) }}" method="POST">
+            <form action="{{ route('tutorias.detail', $tutoria['id_tutoria']) }}" method="POST">
                 @csrf
                 <input type="hidden" name="id_tutoria"
                     value="{{ isset($tutoria['id_tutoria']) ? $tutoria['id_tutoria'] : '' }}">
-                <div class=" mb-3">
-                    <label for="tema" class="form-label">Topic</label>
-                    <input type="text" class="form-control" name="tema" value="{{$tutoria['tema']}}">
+                <div class="text-center wow fadeInUp form-group mb-3">
+                    <h5><strong>Topic:</strong></h5>
+                    {{$tutoria['tema']}}
                 </div>
-                <div class="mb-3">
-                    <label for="comentario" class="form-label">Comment</label>
-                    <input type="text" class="form-control" name="comentario" value="{{$tutoria['comentario']}}">
+                <div class="text-center wow fadeInUp form-group mb-3">
+                    <h5><strong>Comment:</strong></h5>
+                    {{$tutoria['comentario']}}
                 </div>
-                <div class="mb-3">
-                    <label for="fecha" class="form-label">Date</label>
-                    <input type="date" class="form-control" name="fecha" value="{{$tutoria['fecha']}}">
+                <div class="text-center wow fadeInUp form-group mb-3">
+                    <h5><strong>Date:</strong></h5>
+                    {{$tutoria['fecha']}}
                 </div>
-                <div class="mb-3">
-                    <label for="duracion" class="form-label">Duration</label>
-                    <input type="number" class="form-control" name="duracion" value="{{$tutoria['duracion']}}">
+                <div class="text-center wow fadeInUp form-group mb-3">
+                    <h5><strong>Duration:</strong></h5>
+                    {{$tutoria['duracion']}}
                 </div>
-                <div class="mb-3">
-                    <label for="id_estudiante" class="form-label">Student Id</label>
-                    <input type="number" class="form-control" name="id_estudiante"
-                        value="{{$tutoria['id_estudiante']}}">
+                <div class="text-center wow fadeInUp form-group mb-3">
+                    <h5><strong>Student Id:</strong></h5>
+                    {{$tutoria['id_estudiante']}}
                 </div>
-                <div class="mb-3">
-                    <label for="id_tutor" class="form-label">Tutor Id</label>
-                    <input type="number" class="form-control" name="id_tutor" value="{{$tutoria['id_tutor']}}">
+                <div class="text-center wow fadeInUp form-group mb-3">
+                    <h5><strong>Tutor Id:</strong></h5>
+                    {{$tutoria['id_tutor']}}
                 </div>
-                <div class="mb-3">
-                    <label for="id_asignatura" class="form-label">Subject Id</label>
-                    <input type="number" class="form-control" name="id_asignatura"
-                        value="{{$tutoria['id_asignatura']}}">
+                <div class="text-center wow fadeInUp form-group mb-3">
+                    <h5><strong>Subject Id:</strong></h5>
+                    {{$tutoria['id_asignatura']}}
                 </div>
-                <div class="mb-3">
-                    <label for="estado" class="form-label">State</label>
-                    <input type="number" class="form-control" name="estado" value="{{$tutoria['estado']}}">
+                <div class="text-center wow fadeInUp form-group mb-3">
+                    <h5><strong>State:</strong></h5>
+                    {{$tutoria['estado']}}
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+
+                <div class="text-center float-right mt-3">
+                    <a class="btn btn-primary" href="{{ route('tutorias.index') }}"> {{ __('Back') }}</a>
+                </div>
             </form>
         </div>
 

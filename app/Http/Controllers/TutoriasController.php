@@ -48,14 +48,22 @@ class TutoriasController extends Controller
         return redirect()->route('tutorias.index');
     }
 
-    public function show($id_tutoria)
+    public function detail($id_tutoria)
     {
         $url = env('URL_SERVER_API', 'http://localhost');
         $response = Http::get($url . '/tutorias_uni/dev/v1/Tutorias/' . $id_tutoria);
         $tutoria = $response->json();
         $tutoria = $tutoria['Response'];
         return view('mostrar-tutoria', compact('tutoria'));
-        //print_r($tutoria['Response']);
+    }
+
+    public function edit($id_tutoria)
+    {
+        $url = env('URL_SERVER_API', 'http://localhost');
+        $response = Http::get($url . '/tutorias_uni/dev/v1/Tutorias/' . $id_tutoria);
+        $tutoria = $response->json();
+        $tutoria = $tutoria['Response'];
+        return view('editar-tutoria', compact('tutoria'));
     }
 
     public function update(Request $request)

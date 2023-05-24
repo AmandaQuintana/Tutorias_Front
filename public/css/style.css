@@ -441,3 +441,15 @@
     width: 100%;
 }
 
+.miDiv {
+    width: 50%;
+    height: 40vh;
+    /* 50% del viewport height */
+    margin: 0 auto;
+    /* Centrar horizontalmente */
+    display: flex;
+    justify-content: center;
+    /* Centrar verticalmente */
+    align-items: center;
+    /* Centrar verticalmente */
+}

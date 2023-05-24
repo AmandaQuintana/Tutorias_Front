@@ -44,9 +44,12 @@ Tutoria
                                     <td>{{$tutoria['comentario']}}</td>
                                     <td>{{$tutoria['duracion']}}</td>
                                     <td>
-                                        <a class="btn btn-sm btn-primary"
-                                            href="{{ route('tutorias.show', $tutoria['id_tutoria']) }}">
-                                            <i class="fa fa-fw fa-eye"></i> {{ __('Show') }}
+                                        <a class="btn btn-sm btn-primary "
+                                            href="{{ route('tutorias.detail',$tutoria['id_tutoria']) }}"><i
+                                                class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                        <a class="btn btn-sm btn-success"
+                                            href="{{ route('tutorias.edit', $tutoria['id_tutoria']) }}">
+                                            <i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}
                                         </a>
                                         <a class="btn btn-sm btn-danger "
                                             href="{{ route('tutorias.delete',$tutoria['id_tutoria']) }}"><i

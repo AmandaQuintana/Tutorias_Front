@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TutoriasController;
+use App\Http\Controllers\TutoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,21 @@ use App\Http\Controllers\TutoriasController;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/tutorias', [TutoriasController::class, 'index'])->name('tutorias.index'); //LIST
-Route::get('/tutoria', [TutoriasController::class, 'create'])->middleware('auth')->name('tutoria.create');
-Route::post('/tutoria', [TutoriasController::class, 'store'])->name('tutoria.store'); //CREATE
-Route::get('/tutoria/{id}', [TutoriasController::class, 'show'])->name('tutorias.show'); //SHOW
-Route::post('/tutoria/update/{id}', [TutoriasController::class, 'update'])->name('tutorias.update');
-Route::get('/tutoria/delete/{id}', [TutoriasController::class, 'delete'])->name('tutorias.delete'); //DELETE
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/tutorias', [TutoriasController::class, 'index'])->name('tutorias.index'); //LIST
+    Route::get('/tutoria', [TutoriasController::class, 'create'])->name('tutoria.create');
+    Route::post('/tutoria', [TutoriasController::class, 'store'])->name('tutoria.store'); //CREATE
+    Route::get('/tutoria/detail/{id}', [TutoriasController::class, 'detail'])->name('tutorias.detail');//SHOW
+    Route::get('/tutoria/{id}', [TutoriasController::class, 'edit'])->name('tutorias.edit');
+    Route::post('/tutoria/update/{id}', [TutoriasController::class, 'update'])->name('tutorias.update'); //UPDATE
+    Route::get('/tutoria/delete/{id}', [TutoriasController::class, 'delete'])->name('tutorias.delete'); //DELETE
+
+    Route::get('/tutores', [TutoresController::class, 'index'])->name('tutores.index'); //LIST
+    Route::get('/tutor/{id}', [TutoresController::class, 'show'])->name('tutores.show'); //SHOW
+});
+
 
 Route::get('/404', function () {
     return view('404');

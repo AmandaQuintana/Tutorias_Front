@@ -77,6 +77,10 @@
                         <a class="nav-link" href="{{ route('tutorias.index') }}">{{ __('Tutorships') }}</a>
 
                     </ul>
+                    <ul class="navbar-nav me-auto">
+                        <a class="nav-link" href="{{ route('tutores.index') }}">{{ __('Teachers') }}</a>
+
+                    </ul>
                     @endauth
 
                     <!-- Right Side Of Navbar -->
@@ -125,7 +129,7 @@
     </div>
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn footer-fixed" data-wow-delay="0.1s">
+    <div id="footer" class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">

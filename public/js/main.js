@@ -26,13 +26,12 @@
     });
 
     // Footer Fixed
-    $(window).scroll(function () {
-        var scrollPosition = $(window).scrollTop();
+    $(document).ready(function () {
+        var currentPath = window.location.pathname;
+        var allowedViews = ['/tutorias', '/tutor', '/tutores', '/tutor/1'];
 
-        if (scrollPosition > 0) {
-            $(".footer").removeClass("footer-fixed");
-        } else {
-            $(".footer").addClass("footer-fixed");
+        if (allowedViews.includes(currentPath)) {
+            $('#footer').addClass('footer-fixed');
         }
     });
     
