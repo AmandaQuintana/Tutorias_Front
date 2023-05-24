@@ -74,7 +74,7 @@
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
                     @auth
                     <ul class="navbar-nav me-auto">
-                        <a class="nav-link" href="{{ route('tutorias.index') }}">{{ __('Tutorias') }}</a>
+                        <a class="nav-link" href="{{ route('tutorias.index') }}">{{ __('Tutorships') }}</a>
 
                     </ul>
                     @endauth
@@ -125,8 +125,7 @@
     </div>
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn{{ !request()->is('/') ? ' footer-fixed' : '' }}"
-        data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn footer-fixed" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">

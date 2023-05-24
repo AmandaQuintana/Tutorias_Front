@@ -24,7 +24,17 @@
             $('.sticky-top').css('top', '-100px');
         }
     });
-    
+
+    // Footer Fixed
+    $(window).scroll(function () {
+        var scrollPosition = $(window).scrollTop();
+
+        if (scrollPosition > 0) {
+            $(".footer").removeClass("footer-fixed");
+        } else {
+            $(".footer").addClass("footer-fixed");
+        }
+    });
     
     // Dropdown on mouse hover
     const $dropdown = $(".dropdown");

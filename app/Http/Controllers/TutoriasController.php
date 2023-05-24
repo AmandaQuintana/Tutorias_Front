@@ -19,7 +19,7 @@ class TutoriasController extends Controller
 
     public function create()
     {
-        return view('tutoria');
+        return view('crear-tutoria');
     }
 
     public function store(Request $request)
@@ -38,6 +38,44 @@ class TutoriasController extends Controller
             "comentario" => $request->comentario,
             "estado" => $request->estado
         ]);
-        return redirect()->route('tutorias.index')->with('success', 'Tutoria created successfully.');
+        return redirect()->route('tutorias.index');
+    }
+
+    public function delete($id_tutoria)
+    {
+        $url = env('URL_SERVER_API', 'http://localhost');
+        Http::delete($url . '/tutorias_uni/dev/v1/Tutorias/' . $id_tutoria);
+        return redirect()->route('tutorias.index');
+    }
+
+    public function show($id_tutoria)
+    {
+        $url = env('URL_SERVER_API', 'http://localhost');
+        $response = Http::get($url . '/tutorias_uni/dev/v1/Tutorias/' . $id_tutoria);
+        $tutoria = $response->json();
+        $tutoria = $tutoria['Response'];
+        return view('mostrar-tutoria', compact('tutoria'));
+        //print_r($tutoria['Response']);
+    }
+
+    public function update(Request $request)
+    {
+        $date = new DateTime($request->fecha);
+        $formattedDate = $date->format("Y-m-d H:i:s.u\Z");
+
+        $url = env('URL_SERVER_API', 'http://localhost');
+        $id_tutoria = $request->id_tutoria;
+
+        Http::asMultipart()->put($url . '/tutorias_uni/dev/v1/Tutorias/' . $id_tutoria, [
+            "idEstudiante" => $request->id_estudiante,
+            "idTutor" => $request->id_tutor,
+            "idAsignatura" => $request->id_asignatura,
+            "tema" => $request->tema,
+            "fecha" => $formattedDate,
+            "duracion" => $request->duracion,
+            "comentario" => $request->comentario,
+            "estado" => $request->estado
+        ]);
+        return redirect()->route('tutorias.index');
     }
 }

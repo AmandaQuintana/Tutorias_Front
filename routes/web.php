@@ -18,9 +18,12 @@ use App\Http\Controllers\TutoriasController;
 Route::get('/', function () {
     return view('home');
 });
-Route::get('/tutorias', [TutoriasController::class, 'index'])->name('tutorias.index');
-Route::get('/tutoria', [TutoriasController::class, 'create'])->middleware('auth');
-Route::post('/tutoria', [TutoriasController::class, 'store'])->name('tutoria.store');
+Route::get('/tutorias', [TutoriasController::class, 'index'])->name('tutorias.index'); //LIST
+Route::get('/tutoria', [TutoriasController::class, 'create'])->middleware('auth')->name('tutoria.create');
+Route::post('/tutoria', [TutoriasController::class, 'store'])->name('tutoria.store'); //CREATE
+Route::get('/tutoria/{id}', [TutoriasController::class, 'show'])->name('tutorias.show'); //SHOW
+Route::post('/tutoria/update/{id}', [TutoriasController::class, 'update'])->name('tutorias.update');
+Route::get('/tutoria/delete/{id}', [TutoriasController::class, 'delete'])->name('tutorias.delete'); //DELETE
 
 Route::get('/404', function () {
     return view('404');
